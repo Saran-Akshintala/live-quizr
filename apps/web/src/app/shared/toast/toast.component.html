@@ -1,0 +1,10 @@
+<div class="toast-container" aria-live="polite" aria-atomic="true">
+  <div class="toast"
+       *ngFor="let t of (toast.toasts$ | async)"
+       [class.info]="t.type==='info'"
+       [class.success]="t.type==='success'"
+       [class.error]="t.type==='error'">
+    <span class="msg">{{t.message}}</span>
+    <button class="close" (click)="toast.dismiss(t.id)" aria-label="Dismiss">×</button>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<section class="about" aria-labelledby="aboutHeading">
+  <h1 id="aboutHeading">About Live Quizr</h1>
+  <p>Angular + NestJS demo UI. This page pings the API health endpoint.</p>
+  <p>
+    API status:
+    <strong [class.ok]="apiStatus==='ok'" [class.down]="apiStatus==='down'">{{apiStatus}}</strong>
+  </p>
+  <pre *ngIf="details as d">{{ d | json }}</pre>
+</section>

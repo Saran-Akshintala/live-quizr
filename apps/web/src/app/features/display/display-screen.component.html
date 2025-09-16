@@ -1,0 +1,22 @@
+<section class="display" role="main" aria-label="Leaderboard display">
+  <div class="toolbar">
+    <button (click)="toggleFullscreen()" aria-label="Toggle fullscreen">Fullscreen</button>
+  </div>
+  <div class="content">
+    <div class="leaderboard">
+      <h1>Leaderboard — {{eventId}}</h1>
+      <ol>
+        <li *ngFor="let p of leaderboard">
+          <span class="name">{{p.name}}</span>
+          <span class="score">{{p.score}}</span>
+        </li>
+      </ol>
+    </div>
+    <aside class="sponsors" aria-label="Sponsors">
+      <div class="sponsor" *ngIf="sponsors.length">
+        Sponsored by: <strong>{{ sponsors[currentSponsorIndex] }}</strong>
+      </div>
+      <div *ngIf="!sponsors.length">No sponsors</div>
+    </aside>
+  </div>
+</section>

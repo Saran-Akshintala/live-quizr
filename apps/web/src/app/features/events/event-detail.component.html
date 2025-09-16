@@ -1,0 +1,12 @@
+<section class="event-detail" *ngIf="event as ev; else notFound">
+  <h1>{{ev.name}}</h1>
+  <p class="desc">{{ev.description}}</p>
+  <div class="actions">
+    <a [routerLink]="['/host', ev.id]" class="btn">Open Host Console</a>
+    <a [routerLink]="['/display', ev.id]" class="btn">Open Display</a>
+    <a [routerLink]="['/join', ev.id]" class="btn">Join</a>
+  </div>
+</section>
+<ng-template #notFound>
+  <p>Event not found.</p>
+</ng-template>

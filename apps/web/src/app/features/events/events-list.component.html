@@ -1,0 +1,9 @@
+<section class="events">
+  <h1>Events</h1>
+  <ul>
+    <li *ngFor="let ev of events">
+      <a [routerLink]="['/events', ev.id]">{{ev.name}}</a>
+      <p class="desc">{{ev.description}}</p>
+    </li>
+  </ul>
+</section>

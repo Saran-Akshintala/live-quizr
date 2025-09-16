@@ -1,0 +1,9 @@
+<section class="home">
+  <h1>Live Quizr</h1>
+  <p>Navigate using the header or start exploring:</p>
+  <ul>
+    <li *ngFor="let link of links">
+      <a [routerLink]="link.path">{{link.label}}</a>
+    </li>
+  </ul>
+</section>

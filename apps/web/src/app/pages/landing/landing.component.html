@@ -1,0 +1,50 @@
+<div class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 py-12">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-5xl font-bold text-slate-800 mb-6 font-inter animate-fade-in">
+        Welcome to Live-Quizr
+      </h1>
+      <p class="text-xl text-slate-600 mb-12 font-inter animate-fade-in-delay">
+        Create, host, and join live quizzes in real-time with your friends and colleagues.
+      </p>
+      
+      <div class="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+        <mat-card class="bg-white shadow-xl rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 animate-slide-up">
+          <mat-card-header class="pb-4">
+            <mat-card-title class="text-2xl font-semibold text-slate-800 text-center font-inter">
+              Create Quiz
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="text-center">
+            <p class="text-slate-600 mb-6 font-inter">
+              Design engaging quizzes with multiple choice questions and real-time scoring.
+            </p>
+            <a mat-raised-button 
+               class="bg-indigo-600 hover:bg-indigo-700 text-black px-8 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105 font-inter" 
+               routerLink="/create-quiz">
+              Create a Quiz
+            </a>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="bg-white shadow-xl rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 animate-slide-up-delay">
+          <mat-card-header class="pb-4">
+            <mat-card-title class="text-2xl font-semibold text-slate-800 text-center font-inter">
+              Join Session
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="text-center">
+            <p class="text-slate-600 mb-6 font-inter">
+              Access your dashboard or login to participate in live quiz sessions.
+            </p>
+            <button type="button"
+                    class="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105 font-inter cursor-pointer"
+                    (click)="navigateToLogin()">
+              Login
+            </button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 # 🎯 Live Quizr
 
-A modern, interactive quiz platform built with Angular and NestJS, featuring real-time quizzes, multiple game modes, and comprehensive scoring systems.
+A modern, interactive quiz platform built with Angular 17, featuring real-time quizzes, quiz creation/editing, and comprehensive scoring systems. Currently implemented as a frontend-only application with mock data services.
 
 ## 📋 Table of Contents
 
@@ -18,36 +18,37 @@ A modern, interactive quiz platform built with Angular and NestJS, featuring rea
 
 ## ✨ Features
 
-### 🎮 Quiz Modes
-- **Practice Mode**: No timer, immediate feedback after each question
-- **Timed Mode**: 30-second countdown per question with pressure
-- **Challenge Mode**: Fixed question set with final scoring
+### 🎮 Quiz Management
+- **Create Quiz**: Build custom quizzes with multiple questions and answer options
+- **Edit Quiz**: Modify existing quizzes from the dashboard
+- **Take Quiz**: Interactive quiz-taking with navigation and scoring
+- **Quiz Results**: View scores and retake quizzes
 
 ### 🏆 Scoring & Analytics
-- Real-time score tracking
-- Detailed performance analytics
-- Question-by-question review
-- Historical quiz results
-- Performance trends and insights
+- Real-time score calculation during quiz
+- Percentage-based scoring system
+- Question-by-question navigation
+- Immediate feedback on completion
+- Retake functionality
 
 ### 🎨 User Experience
-- Clean, modern interface
+- Modern Material Design interface
 - Responsive design for all devices
 - Smooth animations and transitions
-- Intuitive navigation
-- Loading states and feedback
+- Intuitive navigation between pages
+- Clean form layouts with validation
 
-### 📊 Event Management
-- Create and manage quiz events
-- Event status tracking (Draft, Live, Ended)
-- Participant management
-- Event scheduling
+### 👥 User Management
+- Demo user login for quiz taking
+- Admin user login for quiz creation/editing
+- Role-based dashboard features
+- Simple authentication flow
 
-### 🔐 Security & Authentication
-- JWT-based authentication
-- Role-based access control (RBAC)
-- Secure API endpoints
-- Data validation and sanitization
+### 📱 Current Implementation
+- Frontend-only Angular 17 application
+- Mock data services for quiz storage
+- In-memory data persistence during session
+- Fully functional UI without backend dependency
 
 ## 🛠 Technology Stack
 
@@ -58,20 +59,17 @@ A modern, interactive quiz platform built with Angular and NestJS, featuring rea
 - **Angular Material** - UI components
 - **SCSS** - Styling
 
-### Backend
-- **NestJS** - Node.js framework
-- **TypeScript** - Server-side language
-- **Prisma** - Database ORM
-- **PostgreSQL** - Primary database
-- **JWT** - Authentication
-- **Passport** - Authentication middleware
-
 ### Development Tools
 - **ESLint** - Code linting
 - **Prettier** - Code formatting
-- **Husky** - Git hooks
 - **Jest** - Testing framework
-- **Docker** - Containerization
+- **Angular CLI** - Development tooling
+
+### Future Backend (Planned)
+- **NestJS** - Node.js framework
+- **Prisma** - Database ORM
+- **PostgreSQL** - Primary database
+- **JWT** - Authentication
 
 ## 📁 Project Structure
 
@@ -119,7 +117,6 @@ live-quizr/
 
 - **Node.js** (v18 or higher)
 - **npm** or **yarn**
-- **PostgreSQL** (v13 or higher)
 - **Git**
 
 ### Installation
@@ -130,102 +127,50 @@ live-quizr/
    cd live-quizr
    ```
 
-2. **Install dependencies**
+2. **Navigate to the web application**
+   ```bash
+   cd apps/web
+   ```
+
+3. **Install dependencies**
    ```bash
    npm install
    ```
 
-3. **Environment setup**
+4. **Start the development server**
    ```bash
-   cp .env.template .env
-   # Edit .env with your database credentials and API keys
+   npm start
    ```
 
-4. **Database setup**
-   ```bash
-   # Start PostgreSQL (if using Docker)
-   docker-compose up -d postgres
-   
-   # Run database migrations
-   npx prisma migrate dev
-   
-   # Seed the database
-   npx prisma db seed
-   ```
+5. **Access the application**
+   - Frontend: `http://localhost:4200` (or the port shown in terminal)
 
-5. **Start development servers**
-   ```bash
-   # Terminal 1: Start API server
-   npm run dev:api
-   
-   # Terminal 2: Start web application
-   npm run dev:web
-   ```
+### Quick Start Guide
 
-6. **Access the application**
-   - Frontend: `http://localhost:4200`
-   - Backend API: `http://localhost:3000`
-   - API Documentation: `http://localhost:3000/api`
+1. **Login**: Use "Login as Demo User" or "Login as Admin User" buttons
+2. **Create Quiz**: Click "Create New Quiz" from the dashboard
+3. **Add Questions**: Use the form to add questions with multiple choice options
+4. **Take Quiz**: Click "Start Quiz" on any quiz from the dashboard
+5. **View Results**: Complete the quiz to see your score and retake if desired
 
-## 🎮 Quiz Modes
+## 🎮 Current Features
 
-### Practice Mode
-- **Purpose**: Learning and skill building
-- **Timer**: No time limit
-- **Feedback**: Immediate after each question
-- **Scoring**: Tracked but not competitive
-- **Best for**: New users, learning concepts
+### Quiz Creation
+- **Create Custom Quizzes**: Build quizzes with multiple questions
+- **Multiple Choice Options**: Add 2-4 answer options per question
+- **Correct Answer Selection**: Mark the correct answer for each question
+- **Edit Existing Quizzes**: Modify quiz titles, descriptions, and questions
 
-### Timed Mode
-- **Purpose**: Quick assessment under pressure
-- **Timer**: 30 seconds per question
-- **Feedback**: After quiz completion
-- **Scoring**: Time-based bonus points
-- **Best for**: Skill testing, competitions
+### Quiz Taking
+- **Interactive Interface**: Navigate through questions with Previous/Next buttons
+- **Answer Selection**: Click or use radio buttons to select answers
+- **Progress Tracking**: See current question number and total questions
+- **Score Calculation**: Get percentage-based scores upon completion
 
-### Challenge Mode
-- **Purpose**: Comprehensive evaluation
-- **Timer**: Overall time limit
-- **Feedback**: Detailed results at end
-- **Scoring**: Complex algorithm with difficulty weighting
-- **Best for**: Certifications, formal assessments
-
-## 📚 API Documentation
-
-### Authentication Endpoints
-```
-POST /auth/register     # User registration
-POST /auth/login        # User login
-POST /auth/refresh      # Refresh JWT token
-POST /auth/logout       # User logout
-```
-
-### Events Endpoints
-```
-GET    /events          # List all events
-POST   /events          # Create new event
-GET    /events/:id      # Get event details
-PUT    /events/:id      # Update event
-DELETE /events/:id      # Delete event
-```
-
-### Quiz Endpoints
-```
-POST   /quiz/start      # Start a quiz session
-POST   /quiz/submit     # Submit quiz answer
-GET    /quiz/results    # Get quiz results
-GET    /quiz/history    # Get user quiz history
-```
-
-### Response Format
-```json
-{
-  "success": true,
-  "data": { /* response data */ },
-  "message": "Operation completed successfully",
-  "timestamp": "2024-01-15T10:30:00Z"
-}
-```
+### User Management
+- **Demo Mode**: Take quizzes as a regular user
+- **Admin Mode**: Create and edit quizzes
+- **Dashboard**: View all available quizzes and manage them
 
 ## 🔧 Development
 
@@ -233,59 +178,27 @@ GET    /quiz/history    # Get user quiz history
 
 ```bash
 # Development
-npm run dev:api         # Start API server in development
-npm run dev:web         # Start web app in development
-npm run dev             # Start both API and web
-
-# Building
-npm run build:api       # Build API for production
-npm run build:web       # Build web app for production
-npm run build           # Build entire project
-
-# Testing
-npm run test:api        # Run API tests
-npm run test:web        # Run web app tests
-npm run test            # Run all tests
-npm run test:e2e        # Run end-to-end tests
-
-# Database
-npm run db:migrate      # Run database migrations
-npm run db:seed         # Seed database with sample data
-npm run db:reset        # Reset database
-npm run db:studio       # Open Prisma Studio
-
-# Code Quality
+npm start               # Start Angular development server
+npm run build           # Build for production
+npm run test            # Run unit tests
 npm run lint            # Run ESLint
-npm run lint:fix        # Fix ESLint issues
-npm run format          # Format code with Prettier
 ```
 
-### Environment Variables
+### Current Architecture
 
-Create a `.env` file in the root directory:
+The application currently uses:
+- **Mock Data Service**: In-memory storage for quizzes and user data
+- **Angular Services**: Reactive data management with RxJS
+- **Standalone Components**: Modern Angular 17 architecture
+- **Material Design**: Consistent UI components
 
-```env
-# Database
-DATABASE_URL="postgresql://username:password@localhost:5432/live_quizr"
+### Future Enhancements
 
-# JWT Configuration
-JWT_SECRET="your-super-secret-jwt-key"
-JWT_EXPIRES_IN="24h"
-JWT_REFRESH_SECRET="your-refresh-secret"
-JWT_REFRESH_EXPIRES_IN="7d"
-
-# API Configuration
-API_PORT=3000
-API_HOST=localhost
-
-# Frontend Configuration
-WEB_PORT=4200
-WEB_HOST=localhost
-
-# External Services (Optional)
-OPENAI_API_KEY="your-openai-key-for-ai-copilot"
-REDIS_URL="redis://localhost:6379"
-```
+- **Backend Integration**: Connect to NestJS API for persistent data
+- **User Authentication**: Implement proper JWT-based auth
+- **Real-time Features**: Add live quiz sessions with WebSockets
+- **Advanced Quiz Types**: Multiple question formats, timers, etc.
+- **Analytics Dashboard**: Detailed quiz performance metrics
 
 ## 🧪 Testing
 

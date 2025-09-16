@@ -1,0 +1,46 @@
+<mat-toolbar class="bg-indigo-600 text-white sticky top-0 z-50 shadow-lg font-inter">
+  <a class="brand text-black no-underline font-semibold mr-3 hover:text-indigo-200 transition-colors duration-200" 
+     routerLink="/" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
+    Live-Quizr
+  </a>
+  <span class="flex-1"></span>
+  <nav class="flex space-x-1">
+    <a mat-button 
+       class="text-white hover:bg-indigo-700 rounded-md transition-colors duration-200 px-4 py-2" 
+       routerLink="/" 
+       routerLinkActive="bg-indigo-800" 
+       [routerLinkActiveOptions]="{ exact: true }">
+      Landing
+    </a>
+    <a mat-button 
+       class="text-white hover:bg-indigo-700 rounded-md transition-colors duration-200 px-4 py-2" 
+       routerLink="/dashboard" 
+       routerLinkActive="bg-indigo-800">
+      Dashboard
+    </a>
+    <a mat-button 
+       class="text-white hover:bg-indigo-700 rounded-md transition-colors duration-200 px-4 py-2" 
+       routerLink="/create-quiz" 
+       routerLinkActive="bg-indigo-800">
+      Create Quiz
+    </a>
+    <a mat-button 
+       class="text-white hover:bg-indigo-700 rounded-md transition-colors duration-200 px-4 py-2" 
+       routerLink="/live-quiz" 
+       routerLinkActive="bg-indigo-800">
+      Live Quiz
+    </a>
+    <a mat-button 
+       class="text-white hover:bg-indigo-700 rounded-md transition-colors duration-200 px-4 py-2" 
+       routerLink="/results" 
+       routerLinkActive="bg-indigo-800">
+      Results
+    </a>
+    <a mat-button 
+       class="text-white hover:bg-indigo-700 rounded-md transition-colors duration-200 px-4 py-2" 
+       routerLink="/login" 
+       routerLinkActive="bg-indigo-800">
+      Login
+    </a>
+  </nav>
+</mat-toolbar>
